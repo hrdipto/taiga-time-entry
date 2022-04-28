@@ -1,8 +1,6 @@
 version: "3.5"
 
-x-environment:
-  &default-back-environment
-  # Database settings
+x-environment: &default-back-environment # Database settings
   POSTGRES_DB: taiga
   POSTGRES_USER: taiga
   POSTGRES_PASSWORD: taiga
@@ -28,12 +26,10 @@ x-environment:
   # Telemetry settings
   ENABLE_TELEMETRY: "True"
 
-x-volumes:
-  &default-back-volumes
+x-volumes: &default-back-volumes
   - taiga-static-data:/taiga-back/static
   - taiga-media-data:/taiga-back/media
   # - ./config.py:/taiga-back/settings/config.py
-
 
 services:
   taiga-db:
